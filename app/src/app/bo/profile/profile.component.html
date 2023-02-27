@@ -1,0 +1,391 @@
+
+
+
+
+
+
+  <!-- offcanvas area start -->
+  <div class="offcanvas__area">
+    <div class="modal" id="offcanvasmodal" tabindex="-1" aria-labelledby="offcanvasmodal" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="offcanvas__wrapper">
+            <div class="offcanvas__content">
+              <div class="offcanvas__top mb-40 d-flex justify-content-between align-items-center">
+                <div class="offcanvas__logo logo">
+                  <a href="index.html">
+                    <img src="assets/img/logo/logo.png" alt="logo">
+                  </a>
+                </div>
+                <div class="offcanvas__close">
+                  <button class="offcanvas__close-btn" data-bs-toggle="modal" data-bs-target="#offcanvasmodal">
+                    <i class="fal fa-times"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="offcanvas__search mb-25">
+                <form action="#">
+                  <input type="text" placeholder="What are you searching for?">
+                  <button type="submit"><i class="far fa-search"></i></button>
+                </form>
+              </div>
+              <div class="mobile-menu fix"></div>
+              <div class="offcanvas__text d-none d-lg-block">
+                <p>But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was
+                  born and will give you a complete account of the system and expound the actual teachings of the great
+                  explore</p>
+              </div>
+              <div class="offcanvas__map d-none d-lg-block mb-15">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d29176.030811137334!2d90.3883827!3d23.924917699999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sbd!4v1605272373598!5m2!1sen!2sbd"></iframe>
+              </div>
+              <div class="offcanvas__contact mt-30 mb-20">
+                <h4>Contact Info</h4>
+                <ul>
+                  <li class="d-flex align-items-center">
+                    <div class="offcanvas__contact-icon mr-15">
+                      <i class="fal fa-map-marker-alt"></i>
+                    </div>
+                    <div class="offcanvas__contact-text">
+                      <a target="_blank"
+                        href="https://www.google.com/maps/place/Dhaka/@23.7806207,90.3492859,12z/data=!3m1!4b1!4m5!3m4!1s0x3755b8b087026b81:0x8fa563bbdd5904c2!8m2!3d23.8104753!4d90.4119873">12/A,
+                        Mirnada City Tower, NYC</a>
+                    </div>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <div class="offcanvas__contact-icon mr-15">
+                      <i class="far fa-phone"></i>
+                    </div>
+                    <div class="offcanvas__contact-text">
+                      <a href="mailto:support@gmail.com">088889797697</a>
+                    </div>
+                  </li>
+                  <li class="d-flex align-items-center">
+                    <div class="offcanvas__contact-icon mr-15">
+                      <i class="fal fa-envelope"></i>
+                    </div>
+                    <div class="offcanvas__contact-text">
+                      <a href="tel:+012-345-6789">support@mail.com</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="offcanvas__social">
+                <ul>
+                  <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                  <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                  <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- offcanvas area end -->
+  <div class="body-overlay"></div>
+  <!-- offcanvas area end -->
+
+  <main>
+
+
+
+    <!-- profile area start -->
+    <section class="profile__area pt-50 pb-50 grey-bg-2">
+      <div class="container">
+        <div class="profile__basic-inner pb-20 white-bg">
+          <div class="row align-items-center">
+            <div class="col-xxl-6 col-md-6">
+              <div class="profile__basic d-md-flex align-items-center">
+                <div class="profile__basic-thumb mr-30">
+                  <img src="assets/img/profile/profile-img.jpg" alt="">
+                </div>
+                <div class="profile__basic-content">
+                  <h3 class="profile__basic-title">
+                    Bienvenue <span>{{user?.firstName}}</span>
+                  </h3>
+                  <!-- <p>2 Running Courses <a href="my-course.html">View Course</a></p> -->
+                </div>
+              </div>
+            </div>
+            <div class="col-xxl-6 col-md-6">
+              <div class="profile__basic-cart d-flex align-items-center justify-content-md-end">
+                <div class="cart-info mr-10">
+                  <a href="cart.html">Voir panier</a>
+                </div>
+                <div class="cart-item">
+                  <a href="cart.html">
+                    <i class="fa-regular fa-basket-shopping"></i>
+                    <span class="cart-quantity">2</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- profile area end -->
+
+    <!-- profile menu area start -->
+    <section class="profile__menu pb-70 grey-bg-2">
+      <div class="container">
+        <div class="row">
+          <div class="col-xxl-4 col-md-4">
+            <div class="profile__menu-left white-bg mb-50">
+              <!-- <h3 class="profile__menu-title"><i class="fa-regular fa-square-list"></i> Your Menu</h3> -->
+              <div class="profile__menu-tab">
+                <div class="nav nav-tabs flex-column justify-content-start text-start" id="nav-tab" role="tablist">
+                  <button class="nav-link active" id="nav-account-tab" data-bs-toggle="tab"
+                    data-bs-target="#nav-account" type="button" role="tab" aria-controls="nav-account"
+                    aria-selected="true"> <i class="fa-regular fa-user-large"></i> Mon compte</button>
+                  <button class="nav-link" id="nav-order-tab" data-bs-toggle="tab" data-bs-target="#nav-order"
+                    type="button" role="tab" aria-controls="nav-order" aria-selected="false"><i class="fa-regular fa-graduation-cap"></i>Formations</button>
+                  <button class="nav-link" id="nav-instructor-tab" data-bs-toggle="tab" data-bs-target="#nav-instructor" type="button" role="tab"
+                    aria-controls="nav-instructor" aria-selected="false"><i class="fa-regular fa-chalkboard-user"></i>Enseignants</button>
+                    <button class="nav-link" id="nav-instructor-tab" data-bs-toggle="tab" data-bs-target="#nav-instructor" type="button" role="tab"
+                    aria-controls="nav-instructor" aria-selected="false"><i class="fa-sharp fa-regular fa-screen-users"></i>Etudiants</button>
+                    <button class="nav-link" id="nav-instructor-tab" data-bs-toggle="tab" data-bs-target="#nav-cms" type="button" role="tab"
+                    aria-controls="nav-instructor" aria-selected="false"><i class="fa-sharp fa-solid fa-folder-grid"></i>Contenu du site</button>
+                  <button class="nav-link" id="nav-password-tab" data-bs-toggle="tab" data-bs-target="#nav-password"
+                    type="button" role="tab" aria-controls="nav-password" aria-selected="false"><i
+                      class="fa-regular fa-lock"></i>Modifier mot de passe</button>
+                  <button class="nav-link" routerLink="/sign-in"><i class="fa-regular fa-arrow-right-from-bracket"></i> Déconnexion</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xxl-8 col-md-8">
+            <div class="profile__menu-right">
+              <div class="tab-content" id="nav-tabContent">
+                <div class="tab-pane  show active" id="nav-account" role="tabpanel"
+                  aria-labelledby="nav-account-tab">
+                  <div class="profile__info">
+
+                    <div class="profile__info-top d-flex justify-content-between align-items-center">
+                      <h3 class="profile__info-title">Mes Information</h3>
+                      <button class="profile__info-btn" type="button" data-bs-toggle="modal"
+                        data-bs-target="#profile_edit_modal"><i class="fa-regular fa-pen-to-square"></i> Modifier</button>
+                    </div>
+
+                    <div class="profile__info-wrapper white-bg">
+                      <div class="profile__info-item">
+                        <p>Nom</p>
+                        <h4>{{user?.lastName}}</h4>
+                      </div>
+                      <div class="profile__info-item">
+                        <p>Prénom</p>
+                        <h4>{{user?.firstName}}</h4>
+                      </div>
+                      <div class="profile__info-item">
+                        <p>Email</p>
+                        <h4>{{user?.email}}</h4>
+                      </div>
+                      <!-- <div class="profile__info-item">
+                        <p>Phone</p>
+                        <h4>(325) 463-5693</h4>
+                      </div>
+                      <div class="profile__info-item">
+                        <p>Address</p>
+                        <h4>Abingdon, Maryland(MD), 21009</h4>
+                      </div> -->
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane" id="nav-order" role="tabpanel" aria-labelledby="nav-order-tab">
+                  <div class="order__info">
+                    <div class="order__info-top d-flex justify-content-between align-items-center">
+                      <h3 class="order__info-title">Liste de formations</h3>
+                      <button class="profile__info-btn" type="button" data-bs-toggle="modal" data-bs-target="#course_modal"><i
+                          class="fa-regular fa-plus"></i>Ajouter</button>
+                    </div>
+                     <app-courses></app-courses>
+                  </div>
+                </div>
+                  <div class="tab-pane" id="nav-instructor" role="tabpanel" aria-labelledby="nav-instructor-tab">
+                      <div class="order__info">
+                        <div class="order__info-top d-flex justify-content-between align-items-center">
+                          <h3 class="order__info-title">Liste d'enseignants</h3>
+                          <button class="profile__info-btn" type="button" data-bs-toggle="modal" data-bs-target="#instructor_modal"><i
+                              class="fa-regular fa-plus"></i>Ajouter</button>
+                        </div>
+                          <app-instructors></app-instructors>
+                      </div>
+                  </div>
+                  <div class="tab-pane" id="nav-cms" role="tabpanel" aria-labelledby="nav-cms-tab">
+                    <div class="order__info">
+                      <!-- <div class="order__info-top d-flex justify-content-between align-items-center">
+                        <h3 class="order__info-title">Liste d'enseignants</h3>
+                        <button class="profile__info-btn" type="button" data-bs-toggle="modal" data-bs-target="#instructor_modal"><i
+                            class="fa-regular fa-plus"></i>Ajouter</button>
+                      </div> -->
+                      <app-cms></app-cms>
+                    </div>
+                  </div>
+                <div class="tab-pane" id="nav-password" role="tabpanel" aria-labelledby="nav-password-tab">
+                  <div class="password__change">
+                    <div class="password__change-top">
+                      <h3 class="password__change-title">Modifier mot de passe</h3>
+                    </div>
+                    <div class="password__form white-bg">
+                      <form [formGroup]="passwordUpdateForm">
+                      <div class="sign__input-wrapper mb-25">
+                        <h5>Mot de passe actuel</h5>
+                        <div class="sign__input">
+                          <input type="password" placeholder="mot de passe actuel" formControlName="oldPassword"
+                            [ngClass]="{ 'error': fields_password_update_form['oldPassword'].touched && fields_password_update_form['oldPassword'].invalid,'success':fields_password_update_form['oldPassword'].touched && fields_password_update_form['oldPassword'].valid }">
+                          <i class="fal fa-user"></i>
+                        </div>
+                        <div class="text-left error-container">
+                          <small *ngIf="fields_password_update_form['oldPassword'].touched && fields_password_update_form['oldPassword'].invalid" class="error-msg">
+                            <span *ngIf="fields_password_update_form['oldPassword'].errors?.['required']">Nom obligatoire</span>
+                          </small>
+                        </div>
+                      </div>
+                        <ng-template #popTemplate>
+                          <div class="text-left" *ngIf="fields_password_update_form['newPassword'].errors || disPlayErrors">
+                            <span
+                              *ngIf="(fields_password_update_form['newPassword'].touched && fields_password_update_form['newPassword'].invalid) || (fields_password_update_form['newPassword'].touched && fields_password_update_form['newPassword'].errors?.['pattern']) || disPlayErrors "
+                              class="error-msg">
+                              <span>
+                                <strong class="text-header text-dark">Votre mot de passe doit comporter :</strong>
+                              </span>
+                              <br>
+                              <span
+                                [ngClass]="passwordUpdateForm.get('newPassword')?.hasError('hasCapitalCase') || passwordUpdateForm.get('newPassword')?.hasError('required') ? 'text-dark' : 'text-success'">
+                                1
+                                Majuscule
+                              </span>
+                              <br>
+                              <span
+                                [ngClass]="passwordUpdateForm.get('newPassword')?.hasError('hasSmallCase') || passwordUpdateForm.get('newPassword')?.hasError('required') ? 'text-dark' : 'text-success'">
+
+                                1 Miniscule
+                              </span>
+                              <br>
+                              <span
+                                [ngClass]="passwordUpdateForm.get('newPassword')?.hasError('hasNumber') || passwordUpdateForm.get('newPassword')?.hasError('required') ? 'text-dark' : 'text-success'">
+                                1 Chiffre
+                              </span>
+                              <br>
+                              <span
+                                [ngClass]="passwordUpdateForm.get('newPassword')?.hasError('hasSpecialCharacters') || passwordUpdateForm.get('newPassword')?.hasError('required') ? 'text-dark' : 'text-success'">
+                                1 Caractère spécial
+                              </span>
+                              <br>
+                              <span
+                                [ngClass]="passwordUpdateForm.get('newPassword')?.hasError('minlength') || passwordUpdateForm.get('newPassword')?.hasError('required') ? 'text-dark' : 'text-success'">
+                                Minimum de 8 caractères
+                              </span>
+                            </span>
+                          </div>
+                        </ng-template>
+
+                        <div class="sign__input-wrapper mb-25">
+                          <h5>Nouveau mot de passe</h5>
+                          <div class="sign__input">
+                            <i id="eye-show" *ngIf="!show_button" class="far fa-eye" (click)="showPassword()"></i>
+                            <i id="eye-hide" *ngIf="show_button" class="far fa-eye-slash" (click)="showPassword()"></i>
+
+                            <input [type]="show_button ? 'text' : 'password'" name="password" (change)="onPasswordChange()"
+                              [popover]="popTemplate" triggers="focus" placement="top" (focus)="disPlayErrors=true"
+                              (focusout)="disPlayErrors=false" placeholder="Mot de passe" formControlName="newPassword"
+                              [ngClass]="{ 'error':fields_password_update_form['newPassword'].touched && fields_password_update_form['newPassword'].invalid, 'success':fields_password_update_form['newPassword'].touched && fields_password_update_form['newPassword'].valid }">
+                            <i class="fal fa-lock"></i>
+                          </div>
+                          <div class="text-left error-container" *ngIf="fields_password_update_form['newPassword'].errors || disPlayErrors">
+                            <small *ngIf="fields_password_update_form['newPassword'].touched && fields_password_update_form['newPassword'].invalid" class="error-msg">
+                              <span *ngIf="fields_password_update_form['newPassword'].errors?.['required']">Mot de passe obligatoire</span>
+                            </small>
+                            <small class="error-msg">
+                              <span
+                                *ngIf="(passwordUpdateForm.get('newPassword')?.hasError('hasCapitalCase') || passwordUpdateForm.get('newPassword')?.hasError('hasSmallCase') || passwordUpdateForm.get('newPassword')?.hasError('hasNumber') || passwordUpdateForm.get('newPassword')?.hasError('hasSpecialCharacters') || passwordUpdateForm.get('newPassword')?.hasError('minlength')) && fields_password_update_form['newPassword'].touched">
+                                Le mot de passe ne respecte pas les conditions de sécurité
+                              </span>
+                            </small>
+                          </div>
+                        </div>
+                        <div class="sign__input-wrapper mb-20">
+                          <h5>Confirmer le nouveau mot de passe</h5>
+                          <div class="sign__input">
+                            <input type="password"
+                              [ngClass]="{ 'error':fields_password_update_form['confirmPassword'].touched && fields_password_update_form['confirmPassword'].hasError('mismatch') ,'success':fields_password_update_form['confirmPassword'].touched && !fields_password_update_form['confirmPassword'].hasError('mismatch') }"
+                              (change)="onPasswordChange()" placeholder="Confirmer le mot de passe" formControlName="confirmPassword">
+                            <i class="fal fa-lock"></i>
+                          </div>
+                          <span class="error-msg" *ngIf="fields_password_update_form['confirmPassword'].hasError('mismatch')">Les mots de passe ne
+                            correspondent pas</span>
+                        </div>
+                        <button class="tp-btn w-100" [disabled]="passwordUpdateForm.invalid " (click)="updatePassword()"> <span></span>Modifier</button>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- profile menu area end -->
+
+    <div class="profile__edit-modal">
+      <!-- Modal -->
+      <div class="modal" id="profile_edit_modal" tabindex="-1" aria-labelledby="profile_edit_modal"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+            <div class="profile__edit-wrapper">
+              <div class="profile__edit-close">
+                <button type="button" class="profile__edit-close-btn" data-bs-toggle="modal"
+                  data-bs-target="#course_enroll_modal"><i class="fa-light fa-xmark"></i></button>
+              </div>
+              <form  [formGroup]="userUpdateForm">
+                <div class="profile__edit-input">
+                  <p>Nom</p>
+                  <input type="text" placeholder="Your Name" formControlName="lastName">
+                </div>
+                <div class="profile__edit-input">
+                  <p>Prénom</p>
+                  <input type="text" placeholder="Your Name" formControlName="firstName">
+                </div>
+                <div class="profile__edit-input">
+                  <p>Email</p>
+                  <input type="text" placeholder="Your Email"  formControlName="email">
+                </div>
+
+                <div class="profile__edit-input">
+                  <button type="submit" class="tp-btn w-100" [disabled]="userUpdateForm.invalid"  data-bs-toggle="modal" (click)="updateUserInfo()">Enregistrer</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+      <div class="profile__edit-modal">
+        <!-- Modal -->
+        <div class="modal" id="course_modal" tabindex="-1" aria-labelledby="course_modal" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <app-add-course></app-add-course>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile__edit-modal">
+        <!-- Modal -->
+        <div class="modal" id="instructor_modal" tabindex="-1" aria-labelledby="instructor_modal" aria-hidden="true">
+          <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+              <app-add-instructor></app-add-instructor>
+            </div>
+          </div>
+        </div>
+      </div>
+  </main>
+

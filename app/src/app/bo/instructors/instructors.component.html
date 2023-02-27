@@ -1,0 +1,39 @@
+
+<div class="order__list white-bg table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">N°</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prénom</th>
+        <th scope="col">email</th>
+        <th scope="col">Désignation</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let instructor of instructors;let i=index;">
+        <td>{{i+1}}</td>
+        <td class="order__id">{{instructor?.lastName}}</td>
+        <td>{{instructor?.firstName}}</td>
+        <td>{{instructor?.email}}</td>
+        <td>{{instructor?.designation}}</td>
+        <td><i class="fa-regular fa-eye mr-10"></i> <i class="fa-regular fa-edit mr-10" (click)="editInstructor(instructor)"
+            data-bs-toggle="modal" data-bs-target="#instructor_modal"></i><i class="fa-regular fa-trash-can"
+            (click)="delete(instructor.id)"></i> </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="profile__edit-modal">
+  <!-- Modal -->
+  <div class="modal" id="instructor_modal" tabindex="-1" aria-labelledby="instructor_modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content">
+        <app-add-instructor></app-add-instructor>
+      </div>
+    </div>
+  </div>
+</div>
+

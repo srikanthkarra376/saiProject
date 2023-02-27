@@ -1,0 +1,100 @@
+
+
+  <div class="modal-content">
+    <div class="profile__edit-wrapper">
+      <div class="profile__edit-close">
+        <button type="button" class="profile__edit-close-btn" data-bs-toggle="modal" (click)="reset()"
+          data-bs-target="#course_enroll_modal"><i class="fa-light fa-xmark"></i></button>
+      </div>
+      <div class="">
+        <h3 class="mb-20">{{isEdit? 'Modifier formation': 'Ajouter un formation'}}</h3>
+      </div>
+      <form [formGroup]="courseForm">
+          <div class="profile__edit-input" *ngIf="dropdownList.length">
+            <p>Enseignants</p>
+                <ng-multiselect-dropdown  [ngModelOptions]="{standalone: true}" [placeholder]="'Enseignants'" [settings]="dropdownSettings" [data]="dropdownList"
+                  [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+                </ng-multiselect-dropdown>
+          </div>
+
+        <div class="profile__edit-input">
+          <p>Titre</p>
+          <input type="text" placeholder="titre" formControlName="title">
+        </div>
+        <div class="profile__edit-input">
+          <div class="row">
+            <div class="col-6">
+          <p>Date de début</p>
+          <input type="date" placeholder="Date début" formControlName="startDate">
+            </div>
+            <div class="col-6">
+              <div class="profile__edit-input">
+                <p>Date de fin</p>
+                <input type="date" placeholder="Date de fin" formControlName="endDate">
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contact__form-input">
+          <p>Description</p>
+          <textarea name="message" formControlName="description" placeholder="description"></textarea>
+        </div>
+          <div class="profile__edit-input">
+            <p>Image bannière</p>
+            <input  placeholder="lien image" style="display: none" type="file" (change)="onFileSelect($event)" #hiddenfileinput formControlName="pictureLink">
+            <button (click)="hiddenfileinput.click()"  class="btn btn-dark"><i class="fa-light fa-arrow-up-from-bracket" style="margin-right: 10px;"></i>     Selectionnez une image</button>`
+          </div>
+            <div class="profile__edit-input">
+              <p>Lien video</p>
+              <input type="text" placeholder="Lien video" formControlName="videolink">
+            </div>
+
+        <div class="profile__edit-input">
+          <p>Prix</p>
+          <input type="text" placeholder="prix" formControlName="cost">
+        </div>
+        <div class="profile__edit-input">
+          <p>Remise</p>
+          <input type="text" placeholder="remise" formControlName="discount">
+        </div>
+        <div class="profile__edit-input">
+          <p>Durée</p>
+          <input type="text" placeholder="Durée" formControlName="durationWeeks">
+        </div>
+
+        <div class="profile__edit-input" class="profile__edit-input">
+          <p>Langue</p>
+          <select class="form-control p-3 bg-light"  formControlName="language">
+            <option *ngFor="let language of languages" value="{{language.value}}">{{language.label}}</option>
+          </select>
+        </div>
+        <div formArrayName="curriculums" class="profile__edit-input">
+            <p>Liste de sessions de cours</p>
+          <div *ngFor="let curriculum of curriculums.controls; let i=index" class="m-3">
+            <div [formGroupName]="i">
+              Titre :
+              <input type="text" formControlName="title">
+              Lien zoom ou texte:
+              <input type="text" formControlName="link">
+              Type de media
+              <select class="form-control p-3 bg-light" formControlName="mediaType">
+                <option value="" selected>-----</option>
+                <option *ngFor="let mediaType of mediaTypes " value="{{mediaType.value}}">{{mediaType.label}}</option>
+              </select>
+
+              <button class="btn btn-danger m-1" (click)="removeCurriculum(i)"><i class="fa-regular fa-trash"></i></button>
+            </div>
+          </div>
+        </div>
+       <button type="button"  class="btn btn-dark m-4" (click)="addCurriculum()"> Ajouter une session  <span><i class="fa-sharp fa-regular fa-plus"></i></span> </button>
+        <div class="profile__edit-input">
+          <button type="submit" class="tp-btn w-100"  data-bs-toggle="modal"
+            (click)="create()">Enregistrer</button>
+        </div>
+      </form>
+
+    </div>
+  </div>

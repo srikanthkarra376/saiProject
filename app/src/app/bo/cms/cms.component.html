@@ -1,0 +1,151 @@
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item mb-10">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+        aria-expanded="true" aria-controls="collapseOne">
+        Sliders
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body p-2">
+        <div class="order__info-top d-flex justify-content-between align-items-center" >
+          <h3 class="order__info-title"></h3>
+        <button class="profile__info-btn" type="button" data-bs-toggle="modal" data-bs-target="#slider_modal"><i
+            class="fa-regular fa-plus"></i>Ajouter</button>
+        </div>
+
+          </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">N°</th>
+            <th scope="col">Main text</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image link</th>
+            <th scope="col">Button text</th>
+            <th scope="col">Button link</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let slider of sliders;let i=index;">
+            <td>{{ i + 1}}</td>
+            <td class="order__id">{{slider?.mainText}}</td>
+            <td>{{slider?.description}}</td>
+            <td>{{slider?.imageLink}}</td>
+            <td>{{slider?.buttonText}}</td>
+            <td>{{slider?.buttonLink}}</td>
+            <td><i class="fa-regular fa-eye mr-10"></i> <i class="fa-regular fa-edit mr-10" (click)="edit(slider)"
+                data-bs-toggle="modal" data-bs-target="#slider_modal"></i><i class="fa-regular fa-trash-can"
+                (click)="delete(slider?.id,'slider')"></i> </td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item mb-10">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+        aria-expanded="false" aria-controls="collapseTwo">
+        Features
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <form [formGroup]="featureForm">
+          <div class="profile__edit-input">
+            <p> Main text 1</p>
+            <input type="text"  formControlName="mainTextA">
+          </div>
+          <div class="profile__edit-input contact__form-input">
+            <p> Description 1</p>
+            <textarea  formControlName="descriptionA" placeholder="description"></textarea>
+
+          </div>
+          <div class="profile__edit-input">
+            <p>Button text 1</p>
+            <input type="text"  formControlName="buttonTextA">
+          </div>
+            <div class="profile__edit-input">
+              <p>Button link 1</p>
+              <input type="text"  formControlName="buttonLinkA">
+            </div>
+            <div class="profile__edit-input">
+              <p> Main text 2</p>
+              <input type="text"  formControlName="mainTextB">
+            </div>
+            <div class="profile__edit-input contact__form-input">
+              <p> Description 2</p>
+              <textarea formControlName="descriptionB" placeholder="description"></textarea>
+            </div>
+            <div class="profile__edit-input">
+              <p>Button text 2</p>
+              <input type="text"  formControlName="buttonTextB">
+            </div>
+            <div class="profile__edit-input">
+              <p>Button link 2</p>
+              <input type="text"  formControlName="buttonLinkB">
+            </div>
+              <div class="profile__edit-input">
+                <p> Main text 3</p>
+                <input type="text"  formControlName="mainTextC">
+              </div>
+              <div class="profile__edit-input contact__form-input">
+                <p> Description 3</p>
+                <textarea formControlName="descriptionC" placeholder="description"></textarea>
+              </div>
+              <div class="profile__edit-input">
+                <p>Button text 3</p>
+                <input type="text"  formControlName="buttonTextC">
+              </div>
+              <div class="profile__edit-input">
+                <p>Button link 3</p>
+                <input type="text"  formControlName="buttonLinkC">
+              </div>
+                <button type="submit" class="tp-btn w-100"  (click)="updateFeatureSection()">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+<div class="profile__edit-modal p-3">
+  <!-- Modal -->
+  <div class="modal" id="slider_modal" tabindex="-1" aria-labelledby="slider_modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <div class="modal-content p-4">
+        <div class="profile__edit-close">
+            <button type="button" class="profile__edit-close-btn" data-bs-toggle="modal" (click)="reset()"
+              data-bs-target="#course_enroll_modal"><i class="fa-light fa-xmark"></i></button>
+        </div>
+        <form [formGroup]="sliderForm">
+          <div class="profile__edit-input">
+            <p> Main text</p>
+            <input type="text"  formControlName="mainText">
+          </div>
+          <div class="profile__edit-input contact__form-input">
+            <p> Description</p>
+            <textarea formControlName="description" ></textarea>
+          </div>
+          <div class="profile__edit-input contact__form-input">
+            <p> imageLink</p>
+              <input type="text"  formControlName="imageLink">
+          </div>
+          <div class="profile__edit-input">
+            <p>Button text</p>
+            <input type="text"  formControlName="buttonText">
+          </div>
+          <div class="profile__edit-input">
+            <p>Button link</p>
+            <input type="text"  formControlName="buttonLink">
+          </div>
+          <button type="submit" class="tp-btn w-100" data-bs-toggle="modal" (click)="create()">Enregistrer</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

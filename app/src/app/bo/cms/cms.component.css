@@ -1,0 +1,19 @@
+.profile__edit-input input{
+  background-color: #fff !important;
+}
+
+.contact__form-input textarea {
+    min-height: 91px !important;
+    padding: 23px 25px;
+    height: 110px !important;
+    line-height: 1.1;
+    resize: vertical !important;
+    margin-bottom: 13px;
+    background-color: #fff !important;
+}
+
+
+.order__info-top{
+  padding:10px !important;
+  margin: 5px !important;
+}

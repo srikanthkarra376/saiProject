@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+  jadore_api:
+    build:
+      context: ./api
+    restart: always
+    ports:
+    - "8080:8080"
+    environment:
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}
+      DB_NAME: ${DB_NAME}
+    network_mode: bridge
+
+  angular_app:
+    depends_on:
+      - jadore_api
+    build:
+      context: ./app
+    restart: always
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes: 
+     - /data/certs:/etc/nginx/certs
+
+  mongo:
+        ports:
+            - '27017:27017'
+        container_name: jadore-mongo
+        restart: always
+        logging:
+            options:
+                max-size: 1g
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=mongoadmin
+            - MONGO_INITDB_ROOT_PASSWORD=jadore
+        image: mongo

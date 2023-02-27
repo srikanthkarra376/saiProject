@@ -1,0 +1,252 @@
+
+
+
+
+      <div class="sign__wrapper white-bg m-0">
+    <div class="profile__edit-close">
+      <button type="button" class="profile__edit-close-btn" data-bs-toggle="modal" data-bs-target="#course_enroll_modal" (click)="reset()"><i
+          class="fa-light fa-xmark"></i></button>
+    </div>
+        <div class="sign__form">
+          <form [formGroup]="signUpForm">
+            <div class="sign__input-wrapper mb-25">
+              <h5>Nom</h5>
+              <div class="sign__input">
+                <input type="text" placeholder="Nom" formControlName="lastName"
+                  [ngClass]="{ 'error': (fields_signUp_form['lastName'].touched && fields_signUp_form['lastName'].invalid) || (fields_signUp_form['lastName'].touched && fields_signUp_form['lastName'].errors?.['minlength'] ) ,'success':fields_signUp_form['lastName'].touched && fields_signUp_form['lastName'].valid }">
+                <i class="fal fa-user"></i>
+              </div>
+              <div class="text-left error-container">
+                <small *ngIf="fields_signUp_form['lastName'].touched && fields_signUp_form['lastName'].invalid"
+                  class="error-msg">
+                  <span *ngIf="fields_signUp_form['lastName'].errors?.['required']">Nom obligatoire</span>
+                </small>
+                <small
+                  *ngIf="fields_signUp_form['lastName'].touched && fields_signUp_form['lastName'].errors?.['minlength'] "
+                  class="error-msg">
+                  <span>Nom doit être de 2 caractères minimum</span>
+                </small>
+              </div>
+
+            </div>
+            <div class="sign__input-wrapper mb-25">
+              <h5>Prénom</h5>
+              <div class="sign__input">
+                <input type="text" placeholder="Prénom" formControlName="firstName"
+                  [ngClass]="{ 'error': (fields_signUp_form['firstName'].touched && fields_signUp_form['firstName'].invalid) || (fields_signUp_form['firstName'].touched && fields_signUp_form['firstName'].errors?.['minlength']),'success':fields_signUp_form['firstName'].touched && fields_signUp_form['firstName'].valid }">
+                <i class="fal fa-user"></i>
+              </div>
+              <div class="text-left error-container">
+                <small *ngIf="fields_signUp_form['firstName'].touched && fields_signUp_form['firstName'].invalid"
+                  class="error-msg">
+                  <span *ngIf="fields_signUp_form['firstName'].errors?.['required']">Prénom
+                    obligatoire</span>
+                </small>
+                <small
+                  *ngIf="fields_signUp_form['firstName'].touched && fields_signUp_form['firstName'].errors?.['minlength'] "
+                  class="error-msg">
+                  <span>Prénom doit être de 2 caractères minimum</span>
+                </small>
+
+              </div>
+
+            </div>
+            <div class="sign__input-wrapper mb-25">
+              <h5>Nom d'utilisateur</h5>
+              <div class="sign__input">
+                <input type="text" placeholder="Nom d'utilisateur" formControlName="userName"
+                  [ngClass]="{ 'error': (fields_signUp_form['userName'].touched && fields_signUp_form['userName'].invalid) || (fields_signUp_form['userName'].touched && fields_signUp_form['userName'].errors?.['minlength']),'success':fields_signUp_form['userName'].touched && fields_signUp_form['userName'].valid }">
+                <i class="fal fa-user"></i>
+              </div>
+              <div class="text-left error-container">
+                <small *ngIf="fields_signUp_form['userName'].touched && fields_signUp_form['userName'].invalid"
+                  class="error-msg">
+                  <span *ngIf="fields_signUp_form['userName'].errors?.['required']">Nom d'utilisateur
+                    obligatoire</span>
+                </small>
+                <small
+                  *ngIf="fields_signUp_form['userName'].touched && fields_signUp_form['userName'].errors?.['minlength'] "
+                  class="error-msg">
+                  <span>Nom d'utilisateur doit être de 2 caractères minimum</span>
+                </small>
+
+              </div>
+            </div>
+
+            <div class="sign__input-wrapper mb-25">
+              <h5>Addresse mail</h5>
+              <div class="sign__input">
+                <input type="text" placeholder="Addresse mail" formControlName="email"
+                  [ngClass]="{ 'error':fields_signUp_form['email'].touched && fields_signUp_form['email'].invalid ,'success':fields_signUp_form['email'].touched && fields_signUp_form['email'].valid }">
+                <i class="fal fa-envelope"></i>
+              </div>
+              <div class="text-left error-container">
+                <div *ngIf="fields_signUp_form['email'].errors">
+                  <p class="text-left mb-0">
+                    <span
+                      *ngIf="fields_signUp_form['email'].touched && fields_signUp_form['email'].errors?.['required']"
+                      class="error-msg">Email
+                      obligatoire
+                    </span>
+                    <span
+                      *ngIf="fields_signUp_form['email'].touched && signUpForm.get('email')?.hasError('emailExists')"
+                      class="error-msg">
+                      Un compte existe avec cet e-mail
+                    </span>
+                    <span
+                      *ngIf="(fields_signUp_form['email'].touched && fields_signUp_form['email'].invalid) && !signUpForm.get('email')?.hasError('emailExists') || (fields_signUp_form['email'].touched && fields_signUp_form['email'].errors?.['pattern']) "
+                      class="error-msg">
+                      Entrer un email valide
+                    </span>
+                  </p>
+
+                </div>
+              </div>
+
+            </div>
+
+            <ng-template #popTemplate>
+              <div class="text-left" *ngIf="fields_signUp_form['password'].errors || disPlayErrors">
+
+                <span
+                  *ngIf="(fields_signUp_form['password'].touched && fields_signUp_form['password'].invalid) || (fields_signUp_form['password'].touched && fields_signUp_form['password'].errors?.['pattern']) || disPlayErrors "
+                  class="error-msg">
+                  <span>
+                    <strong class="text-header text-dark">Votre mot de passe doit comporter :</strong>
+                  </span>
+
+                  <br>
+
+                  <span
+                    [ngClass]="signUpForm.get('password')?.hasError('hasCapitalCase') || signUpForm.get('password')?.hasError('required') ? 'text-dark' : 'text-success'">
+
+                    1
+                    Majuscule
+                  </span>
+                  <br>
+                  <span
+                    [ngClass]="signUpForm.get('password')?.hasError('hasSmallCase') || signUpForm.get('password')?.hasError('required') ? 'text-dark' : 'text-success'">
+
+                    1 Miniscule
+                  </span>
+                  <br>
+                  <span
+                    [ngClass]="signUpForm.get('password')?.hasError('hasNumber') || signUpForm.get('password')?.hasError('required') ? 'text-dark' : 'text-success'">
+
+                    1 Chiffre
+                  </span>
+                  <br>
+                  <span
+                    [ngClass]="signUpForm.get('password')?.hasError('hasSpecialCharacters') || signUpForm.get('password')?.hasError('required') ? 'text-dark' : 'text-success'">
+
+                    1 Caractère spécial
+                  </span>
+                  <br>
+                  <span
+                    [ngClass]="signUpForm.get('password')?.hasError('minlength') || signUpForm.get('password')?.hasError('required') ? 'text-dark' : 'text-success'">
+
+                    Minimum de 8 caractères
+                  </span>
+
+                </span>
+
+              </div>
+            </ng-template>
+
+            <div class="sign__input-wrapper mb-25" *ngIf="!isEdit">
+              <h5>Mot de passe</h5>
+              <div class="sign__input">
+                <i id="eye-show" *ngIf="show_button" class="far fa-eye" (click)="showPassword()"></i>
+                <i id="eye-hide" *ngIf="!show_button" class="far fa-eye-slash" (click)="showPassword()"></i>
+
+                <input [type]="show_button ? 'text' : 'password'" name="password" (change)="onPasswordChange()"
+                  [popover]="popTemplate" triggers="focus" placement="top" (focus)="disPlayErrors=true"
+                  (focusout)="disPlayErrors=false" placeholder="Mot de passe" formControlName="password"
+                  [ngClass]="{ 'error':fields_signUp_form['password'].touched && fields_signUp_form['password'].invalid, 'success':fields_signUp_form['password'].touched && fields_signUp_form['password'].valid }">
+                <i class="fal fa-lock"></i>
+              </div>
+              <div class="text-left error-container" *ngIf="fields_signUp_form['password'].errors || disPlayErrors">
+                <small *ngIf="fields_signUp_form['password'].touched && fields_signUp_form['password'].invalid"
+                  class="error-msg">
+                  <span *ngIf="fields_signUp_form['password'].errors?.['required']">Mot de passe
+                    obligatoire</span>
+                </small>
+                <small class="error-msg">
+                  <span
+                    *ngIf="(signUpForm.get('password')?.hasError('hasCapitalCase') || signUpForm.get('password')?.hasError('hasSmallCase') || signUpForm.get('password')?.hasError('hasNumber') || signUpForm.get('password')?.hasError('hasSpecialCharacters') || signUpForm.get('password')?.hasError('minlength')) && fields_signUp_form['password'].touched">
+                    Le mot de passe ne respecte pas les conditions de sécurité
+                  </span>
+                </small>
+              </div>
+            </div>
+            <div class="sign__input-wrapper mb-20"  *ngIf="!isEdit">
+              <h5>Confirmer le mot de passe</h5>
+              <div class="sign__input">
+                <input type="password"
+                  [ngClass]="{ 'error':fields_signUp_form['confirmPassword'].touched && fields_signUp_form['confirmPassword'].hasError('mismatch') ,'success':fields_signUp_form['confirmPassword'].touched && !fields_signUp_form['confirmPassword'].hasError('mismatch') }"
+                  (change)="onPasswordChange()" placeholder="Confirmer le mot de passe"
+                  formControlName="confirmPassword">
+                <i class="fal fa-lock"></i>
+
+              </div>
+              <span class="error-msg" *ngIf="fields_signUp_form['confirmPassword'].hasError('mismatch')">Les mots de
+                passe ne
+                correspondent pas</span>
+            </div>
+            <div class="sign__input-wrapper mb-25">
+              <div>
+                <h5>Désignation</h5>
+                <div class="sign__input">
+                    <input type="text" placeholder="Désignation" formControlName="designation"
+                     [ngClass]="{ 'error': (fields_signUp_form['designation'].touched && fields_signUp_form['designation'].invalid) ,'success':fields_signUp_form['designation'].touched && fields_signUp_form['designation'].valid }">
+                    <i class="fal fa-user-alt"></i>
+                </div>
+                <div class="text-left error-container">
+                  <small *ngIf="fields_signUp_form['designation'].touched && fields_signUp_form['designation'].invalid" class="error-msg">
+                    <span *ngIf="fields_signUp_form['designation'].errors?.['required']">Désignation obligatoire</span>
+                  </small>
+                </div>
+              </div>
+            </div>
+              <div class="sign__input-wrapper mb-25">
+                <div>
+                  <h5>Picture profile</h5>
+                  <div class="sign__input">
+                    <input type="text" placeholder="profilePictureLink" formControlName="profilePictureLink"
+                      [ngClass]="{ 'error': (fields_signUp_form['profilePictureLink'].touched && fields_signUp_form['profilePictureLink'].invalid) ,'success':fields_signUp_form['profilePictureLink'].touched && fields_signUp_form['profilePictureLink'].valid }">
+                    <i class="fal fa-image"></i>
+                  </div>
+                  <div class="text-left error-container">
+                    <small *ngIf="fields_signUp_form['profilePictureLink'].touched && fields_signUp_form['profilePictureLink'].invalid"
+                      class="error-msg">
+                      <span *ngIf="fields_signUp_form['profilePictureLink'].errors?.['required']">Picture profile obligatoire</span>
+                    </small>
+                  </div>
+                </div>
+              </div>
+            <div class="sign__input-wrapper mb-25">
+              <div class="contact__form-input">
+              <h5>Bio</h5>
+              <div class="sign__input">
+                <textarea name="bio" formControlName="bio" placeholder="bio" [ngClass]="{ 'error': (fields_signUp_form['bio'].touched && fields_signUp_form['bio'].invalid) ,'success':fields_signUp_form['bio'].touched && fields_signUp_form['bio'].valid }"></textarea>
+              </div>
+              <div class="text-left error-container">
+                <small *ngIf="fields_signUp_form['bio'].touched && fields_signUp_form['bio'].invalid" class="error-msg">
+                  <span *ngIf="fields_signUp_form['bio'].errors?.['required']">bio obligatoire</span>
+                </small>
+              </div>
+            </div>
+            </div>
+            <div class="profile__edit-input">
+              <p>Roles</p>
+              <ng-multiselect-dropdown [ngModelOptions]="{standalone: true}" [placeholder]="'roles'"
+                [settings]="dropdownSettings" [data]="dropdownList" [(ngModel)]="selectedItems" (onSelect)="onItemSelect($event)"
+                (onSelectAll)="onSelectAll($event)">
+              </ng-multiselect-dropdown>
+            </div>
+            <button class="tp-btn w-100" [disabled]="signUpForm.invalid" data-bs-toggle="modal" (click)="create()"> <span></span>Enregistrer</button>
+          </form>
+        </div>
+      </div>
+
+
